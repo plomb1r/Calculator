@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
+    static Scanner console = new Scanner(System.in);
+
     public static boolean isInteger(String str) {
         try {
             Integer.parseInt(str);
@@ -11,10 +13,13 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        Scanner console = new Scanner(System.in);
+        calc(console.nextLine());
+    }
+
+    public static String calc(String input) throws Exception {
         int a;
         int b;
-        var elements = console.nextLine().split("", 3);
+        var elements = input.split(" ", 3);
         boolean isArabicNumbers = isInteger(elements[0]);
         if (isArabicNumbers) {
             a = Integer.parseInt(elements[0]);
@@ -28,7 +33,8 @@ public class Main {
         }
         var action = Operator.convert(elements[1]);
         int result = action.calculate(a, b);
-
         System.out.println(isArabicNumbers ? result : RomanNumbers.convertArabicNumber(result));
+        return isArabicNumbers ? Integer.toString(result) : RomanNumbers.convertArabicNumber(result);
     }
+
 }

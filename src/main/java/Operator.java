@@ -22,7 +22,7 @@ public enum Operator {
                 .orElseThrow(() -> new IllegalStateException("Unexpected value: " + action));
     }
 
-    public int calculate(int a, int b) {
+    public int  calculate(int a, int b) {
         return operation.apply(a, b);
     }
 }

@@ -30,8 +30,7 @@ public enum RomanNumbers {
 
     private static final List<RomanNumbers> REVERSE_SORTED_VALUES =
             Arrays.stream(values())
-                    .sorted(Comparator.comparing((RomanNumbers v) -> v.value).reversed())
-                    .collect(Collectors.toList());
+                    .sorted(Comparator.comparing((RomanNumbers v) -> v.value).reversed()).toList();
     public static String convertArabicNumber(int number) throws Exception {
         if (number <= 0){
             throw new Exception ("Римское число не может быть меньше I");
